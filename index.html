@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teo Shop - Свещи, 3D принтирани неща, сайтове</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            color: #f5c518;
+        }
+        nav {
+            margin: 20px;
+            text-align: center;
+        }
+        nav a {
+            color: #f5c518;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        section {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .social-media {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .social-media a {
+            color: #f5c518;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        /* Разделителна линия */
+        hr {
+            border: 1px solid #f5c518;
+            width: 80%;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+    <!-- Останалата част от сайта -->
+        <h1>Teo Shop</h1>
+        <p>Свещи, 3D принтирани неща, сайтове</p>
+    </header>
+
+    <nav>
+        <a onclick="navigate('Начало')">Начало</a>
+        <a onclick="navigate('Продукти')">Продукти</a>
+        <a onclick="navigate('Услуги')">Услуги</a>
+        <a onclick="navigate('Контакти')">Контакти</a>
+    </nav>
+
+    <section>
+        <h2>Добре дошли в Teo Shop</h2>
+        <p>В Teo Shop предлагаме уникални свещи, 3D принтирани предмети и персонализирани уебсайтове за вашия бизнес.</p>
+
+        <!-- Разделителна линия -->
+        <hr>
+
+        <div class="social-media">
+            <h3>Последвайте ни в социалните мрежи:</h3>
+            <a href="https://www.facebook.com/profile.php?id=61559010762558&locale=bg_BG" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/teo.shop.bg/?next=%2F" target="_blank">Instagram</a>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        function navigate(page) {
+            alert("Отивате на " + page + " страница.");
+        }
+    </script>
+    <section>
+    <!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзиви - Teo Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            padding: 20px;
+        }
+        .review-form {
+            margin-bottom: 30px;
+        }
+        .review {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .review p {
+            margin: 0;
+            color: #b3b3b3;
+        }
+        textarea, input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #333;
+            background-color: #2b2b2b;
+            color: #ffffff;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        h2, h3 {
+            color: #ffffff;
+        }
+        hr {
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Отзиви от клиенти</h2>
+    
+    <!-- Показване на отзивите тук -->
+    <div id="reviews-container">
+        <!-- Отзивите ще се появят тук -->
+    </div>
+    
+    <hr>
+
+    <!-- Форма за нов отзив -->
+    <div class="review-form">
+        <h3>Оставете своя отзив:</h3>
+        <form id="reviewForm">
+            <label for="name">Вашето име:</label><br>
+            <input type="text" id="name" name="name" placeholder="Въведете вашето име" required><br>
+            
+            <label for="review">Вашият отзив:</label><br>
+            <textarea id="review" name="review" rows="4" placeholder="Напишете вашия отзив тук" required></textarea><br>
+            
+            <button type="submit">Изпрати отзива</button>
+        </form>
+    </div>
+
+    <script>
+        // Функция за добавяне на нов отзив
+        document.getElementById('reviewForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвратява презареждането на страницата
+
+            // Получаване на стойностите от полетата
+            const name = document.getElementById('name').value;
+            const review = document.getElementById('review').value;
+
+            // Създаване на HTML елемент за нов отзив
+            const reviewContainer = document.createElement('div');
+            reviewContainer.classList.add('review');
+            reviewContainer.innerHTML = `<p><strong>${name}:</strong> ${review}</p>`;
+
+            // Добавяне на новия отзив в контейнера за отзиви
+            document.getElementById('reviews-container').prepend(reviewContainer);
+
+            // Изчистване на полетата
+            document.getElementById('name').value = '';
+            document.getElementById('review').value = '';
+        });
+    </script>
+    <!DOCTYPE html>
+    <html lang="bg">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Teo Shop - Контакт</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #121212;
+                color: #ffffff;
+                padding: 20px;
+            }
+            input, textarea {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                border: 1px solid #333;
+                background-color: #2b2b2b;
+                color: #ffffff;
+            }
+            button {
+                padding: 10px;
+                background-color: #5cb85c;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #4cae4c;
+            }
+        </style>
+    </head>
+    <body>
+    
+        <h2>Контактна форма</h2>
+    
+        <form id="contactForm">
+            <input type="text" id="user_name" name="user_name" placeholder="Вашето име" required>
+            <input type="email" id="user_email" name="user_email" placeholder="Вашият имейл" required>
+            <textarea id="message" name="message" rows="4" placeholder="Вашето съобщение" required></textarea>
+            <button type="submit">Изпрати</button> <!-- Бутон за изпращане -->
+        </form>
+    
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function(){
+                emailjs.init("service_ikwe5qn");  // Тук сложи твоя Public Key от EmailJS
+            })();
+    
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Спира автоматичното презареждане на страницата
+                
+                // Изпраща имейла с данните от формата
+                emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+                    .then(function(response) {
+                        alert('Съобщението е изпратено успешно!');
+                    }, function(error) {
+                        alert('Грешка при изпращането на съобщението.');
+                    });
+    
+                this.reset(); // Нулира формата след изпращане
+            });
+        </script>
+
+    </body>
+    </html>
+    
