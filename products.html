@@ -8,6 +8,57 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teo Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        /* Стил за търсачката */
+        .search-bar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-bar input {
+            padding: 5px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Добре дошли в Teo Shop</h1>
+
+    <!-- Търсачка отдясно -->
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Търсене на продукти..." />
+        <button onclick="searchProducts()">Търси</button>
+    </div>
+
+    <script>
+        function searchProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            // Добави логика за търсене на продукти тук
+            alert("Търсите: " + query);
+        }
+    </script>
+</body>
+</html>
+<div class="promo-banner">
+    ⚡ Специална оферта: 10% отстъпка за всички свещи! ⚡
+</div>
+    </script>
     <header>
         <h1>Teo Shop</h1>
         <nav>
