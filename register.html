@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    </head>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация - Teo Shop</title>
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход - Teo Shop</title>
+    <style>
+        /* Постави тук CSS кода от примера */
+    </style>
+</head>
+<body>
+    <h1>Регистрация</h1>
+    <input type="text" id="username" placeholder="Потребителско име" />
+    <input type="password" id="password" placeholder="Парола" />
+    <button onclick="register()">Регистрирай се</button>
+    <button onclick="goBack()">Назад</button>
+
+    <script>
+        function register() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            alert("Регистриран: " + username);
+            // Можеш да добавиш логика за съхранение на потребителите
+        }
+
+        function goBack() {
+            window.history.back(); // Връща назад
+        }
+    </script>
+</body>
+</html>

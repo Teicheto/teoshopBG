@@ -38,14 +38,83 @@
     </style>
 </head>
 <body>
+    <!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teo Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        /* Стил за търсачката */
+        .search-bar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input {
+            padding: 5px;
+            margin-right: 5px;
+        }
+
+        .icon {
+            margin-left: 10px;
+            cursor: pointer;
+            color: black; /* Черен цвят за иконите */
+        }
+
+        .icon i {
+            font-size: 20px; /* Размер на иконите */
+        }
+
+        .icon:hover {
+            color: gray; /* Цвят при минаване с мишката */
+        }
+    </style>
+</head>
+<body>
     <h1>Добре дошли в Teo Shop</h1>
 
     <!-- Търсачка отдясно -->
     <div class="search-bar">
         <input type="text" id="searchInput" placeholder="Търсене на продукти..." />
         <button onclick="searchProducts()">Търси</button>
+        <div class="icon" onclick="openLogin()">
+            <i class="fas fa-sign-in-alt"></i> <!-- Икона за влизане -->
+        </div>
+        <div class="icon" onclick="openRegister()">
+            <i class="fas fa-user-plus"></i> <!-- Икона за регистрация -->
+        </div>
     </div>
 
+    <script>
+        function searchProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            alert("Търсите: " + query);
+        }
+
+        function openLogin() {
+            window.location.href = 'login.html'; // Пренасочва към страницата за влизане
+        }
+
+        function openRegister() {
+            window.location.href = 'register.html'; // Пренасочва към страницата за регистрация
+        }
+    </script>
+</body>
+</html>
     <script>
         function searchProducts() {
             const query = document.getElementById('searchInput').value.toLowerCase();

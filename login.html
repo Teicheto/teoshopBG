@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+        </style>
+    </head>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход - Teo Shop</title>
+</head>
+<body>
+    <h1>Вход</h1>
+    <input type="text" id="loginUsername" placeholder="Потребителско име" />
+    <input type="password" id="loginPassword" placeholder="Парола" />
+    <button onclick="login()">Вход</button>
+    <button onclick="goBack()">Назад</button>
+
+    <script>
+        function login() {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            alert("Влезе: " + username);
+            // Можеш да добавиш логика за проверка на входа
+        }
+
+        function goBack() {
+            window.history.back(); // Връща назад
+        }
+    </script>
+</body>
+</html>
