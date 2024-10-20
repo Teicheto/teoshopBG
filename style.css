@@ -67,3 +67,6 @@ a:hover {
     transform: scale(1.02);
     transition: transform 0.3s ease;
 }
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>

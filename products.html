@@ -14,6 +14,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teo Shop</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Включи CSS файл -->
+    <style>
+        /* Включваме стиловете директно тук за опростеност */
+        .header {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+        }
+        .favorites {
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+        .icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 5px;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+        .dropdown-menu a:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="favorites" onclick="toggleMenu()">
+            <img src="favorite_icon.png" alt="Любими" class="icon" />
+            <span id="favorites-count">0</span>
+            <div class="dropdown-menu" id="dropdown-menu">
+                <a href="favorites.html">Любими</a>
+                <a href="profile.html">Профила ви</a>
+            </div>
+        </div>
+        <input type="text" placeholder="Търсене..." class="search-bar" />
+        <button class="search-button">Търси</button>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('dropdown-menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.favorites') && !event.target.matches('.icon')) {
+                const menu = document.getElementById('dropdown-menu');
+                menu.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teo Shop</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -128,7 +202,7 @@
     ⚡ Специална оферта: 10% отстъпка за всички свещи! ⚡
 </div>
     </script>
-    <header>
+    <header>          
         <h1>Teo Shop</h1>
         <nav>
             <ul>
@@ -202,11 +276,12 @@
     </div>
 
     <div class="product">
-        <img src="candle_abstract.jpg" alt="Декоративна свещ"> <!-- Изображението е първо -->
-        <h2>НОВА СВЕЩ! </h2>
-        <p>Цветове:синьо, оранжево, зелен, червен, виолетово и др.</p>
+        <img src="candle_abstract.jpg" alt="Име на продукта" />
+        <h3>НОВА Свещ</h3>
         <p>Цена: 10 лв.</p>
+        <button class="favorite-button" onclick="addToFavorites('Име на продукта')">Добави в любими</button>
     </div>
+    
 
     <div class="product">
         <img src="skull_candle.jpg" alt="Декоративна свещ"> <!-- Изображението е първо -->
