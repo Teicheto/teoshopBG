@@ -172,3 +172,53 @@ function loadFavorites() {
         }
     });
 }
+function saveToLocalStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value)); // Сериализиране на данните
+}
+function getFromLocalStorage(key) {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : null; // Десериализиране на данните
+}
+function updateLocalStorage(key, newValue) {
+    saveToLocalStorage(key, newValue); // Просто повикаме функцията за запис
+}
+function removeFromLocalStorage(key) {
+    localStorage.removeItem(key);
+}
+function clearLocalStorage() {
+    localStorage.clear();
+}
+// Добавяне на продукт в любими
+function toggleFavorite(productId) {
+    let favorites = getFromLocalStorage('favorites') || [];
+    
+    if (favorites.includes(productId)) {
+        favorites = favorites.filter(id => id !== productId); // Премахване от любими
+        alert('Продуктът е премахнат от любимите!');
+    } else {
+        favorites.push(productId); // Добавяне в любими
+        alert('Продуктът е добавен в любимите!');
+    }
+    
+    saveToLocalStorage('favorites', favorites); // Запазваме актуализирания списък
+}
+
+// Извеждане на любимите продукти
+function loadFavorites() {
+    const favorites = getFromLocalStorage('favorites') || [];
+    const favoritesList = document.getElementById('favorites-list');
+
+    if (favorites.length === 0) {
+        favoritesList.innerHTML = '<p>Нямате любими продукти.</p>';
+        return;
+    }
+
+    favorites.forEach(productId => {
+        const productElement = document.createElement('div');
+        productElement.innerHTML = `<p>Продукт ID: ${productId}</p>`;
+        favoritesList.appendChild(productElement);
+    });
+}
+
+// Пример за добавяне на бутон за любими
+<button onclick="toggleFavorite('1')">Добави в любими</button>

@@ -7,10 +7,51 @@
     <title>Teo Shop - Продукти</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bg">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teo Shop</title>
+    <style>
+        body {
+            margin: 0; /* Нулиране на отстъпите */
+            background-color: #f4f4f4; /* Светъл фон */
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between; /* Разпределя елементите в хедъра */
+            align-items: center; /* Центрира елементите вертикално */
+            padding: 15px; /* Отстъп в хедъра */
+            background-color: #fff; /* Бял фон на хедъра */
+            box-shadow: none; /* Без сянка */
+        }
+
+        .header a {
+            margin-left: 10px; /* Отстъп между бутоните */
+            text-decoration: none; /* Премахване на подчертаването */
+            color: #007bff; /* Цвят на текста за бутоните */
+        }
+
+        .header a:hover {
+            text-decoration: underline; /* Подчертаване при задържане */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="favorites">
+            <a href="favorites.html">Любими</a>
+        </div>
+        <div class="auth-links">
+            <a href="register.html">Регистрация</a>
+            <a href="login.html">Вход</a>
+        </div>
+    </div>
+</body>
+</html>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teo Shop</title>
@@ -64,8 +105,6 @@
                 <a href="profile.html">Профила ви</a>
             </div>
         </div>
-        <input type="text" placeholder="Търсене..." class="search-bar" />
-        <button class="search-button">Търси</button>
     </div>
 
     <script>
@@ -113,88 +152,42 @@
 </head>
 <body>
     <!DOCTYPE html>
-<html lang="bg">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teo Shop</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        /* Стил за търсачката */
-        .search-bar {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #f1f1f1;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-        }
-
-        .search-bar input {
-            padding: 5px;
-            margin-right: 5px;
-        }
-
-        .icon {
-            margin-left: 10px;
-            cursor: pointer;
-            color: black; /* Черен цвят за иконите */
-        }
-
-        .icon i {
-            font-size: 20px; /* Размер на иконите */
-        }
-
-        .icon:hover {
-            color: gray; /* Цвят при минаване с мишката */
-        }
-    </style>
-</head>
-<body>
-    <h1>Добре дошли в Teo Shop</h1>
-
-    <!-- Търсачка отдясно -->
-    <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Търсене на продукти..." />
-        <button onclick="searchProducts()">Търси</button>
-        <div class="icon" onclick="openLogin()">
-            <i class="fas fa-sign-in-alt"></i> <!-- Икона за влизане -->
-        </div>
-        <div class="icon" onclick="openRegister()">
-            <i class="fas fa-user-plus"></i> <!-- Икона за регистрация -->
-        </div>
-    </div>
-
-    <script>
-        function searchProducts() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            alert("Търсите: " + query);
-        }
-
-        function openLogin() {
-            window.location.href = 'login.html'; // Пренасочва към страницата за влизане
-        }
-
-        function openRegister() {
-            window.location.href = 'register.html'; // Пренасочва към страницата за регистрация
-        }
-    </script>
-</body>
-</html>
-    <script>
-        function searchProducts() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            // Добави логика за търсене на продукти тук
-            alert("Търсите: " + query);
-        }
+    <html lang="bg">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Teo Shop</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            
+            }
+    
+            .search-bar input {
+                padding: 5px;
+                margin-right: 5px;
+            }
+    
+            .icon {
+                margin-left: 10px;
+                cursor: pointer;
+                color: black; /* Черен цвят за иконите */
+            }
+    
+            .icon i {
+                font-size: 20px; /* Размер на иконите */
+            }
+    
+            .icon:hover {
+                color: gray; /* Цвят при минаване с мишката */
+            }
+        </style>
+    </head>
+        </script>
+    </body>
+    </html>
     </script>
 </body>
 </html>
@@ -269,11 +262,12 @@
     <hr> <!-- Линията между заглавието и продуктите -->
 
     <div class="product">
-        <img src="candle_bus.jpg" alt="Ароматна свещ"> <!-- Изображението е първо -->
-        <h2>Свещ сърф бусче</h2>
-        <p>Свещ сърф бусче с прекрасен аромат на пъпеш.За поръчки в instagram и facebook.</p>
-        <p>Цена: 5 лв.</p>
-    </div>
+        <h3></h3>
+        <img src="candle_bus.jpg" alt="Продукт 1">
+        <p>Свещ бусче</p>
+        <p>Цена: 5 лв</p>
+        <button onclick="addToFavorites('Бус свещ')">Добави в любими</button>
+    </div> 
 
     <div class="product">
         <h3></h3>
@@ -283,13 +277,13 @@
         <button onclick="addToFavorites('Продукт 1')">Добави в любими</button>
     </div>    
     
-
     <div class="product">
-        <img src="skull_candle.jpg" alt="Декоративна свещ"> <!-- Изображението е първо -->
-        <h2>Свещ червен череп! </h2>
-        <p>За поръчки пишете в instagram или Facebook.</p>
-        <p>Цена: 5 лв.</p>
-    </div>
+        <h3></h3>
+        <img src="skull_candle.jpg" alt="Продукт 1">
+        <p>Червен череп свещ</p>
+        <p>Цена: 5 лв</p>
+        <button onclick="addToFavorites('Череп свещ')">Добави в любими</button>
+    </div>   
 
     <div class="product">
         <img src="shipka.jpg" alt="Декоративна свещ"> <!-- Изображението е първо -->
