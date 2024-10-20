@@ -1,13 +1,71 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
+    <link rel="icon" href="favicon.jpg" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Профил</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .profile-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .profile-details {
+            list-style: none;
+            padding: 0;
+        }
+        .profile-details li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .profile-details li:last-child {
+            border-bottom: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>Вашият профил</h1>
-    <!-- Добави тук код за показване на информация за потребителя -->
+
+    <div class="profile-container">
+        <h1>Вашият профил</h1>
+        <ul class="profile-details">
+            <li><strong>Име:</strong> <span id="user-name">Няма информация</span></li>
+            <li><strong>Email:</strong> <span id="user-email">Няма информация</span></li>
+            <li><strong>Град:</strong> <span id="user-city">Няма информация</span></li>
+            <li><strong>Дата на регистрация:</strong> <span id="registration-date">Няма информация</span></li>
+        </ul>
+    </div>
+
+    <script>
+        // Функция за извличане на данни от localStorage и показване на профила
+        function loadProfile() {
+            const userName = localStorage.getItem('userName') || 'Няма информация';
+            const userEmail = localStorage.getItem('userEmail') || 'Няма информация';
+            const userCity = localStorage.getItem('userCity') || 'Няма информация';
+            const registrationDate = localStorage.getItem('registrationDate') || 'Няма информация';
+
+            document.getElementById('user-name').textContent = userName;
+            document.getElementById('user-email').textContent = userEmail;
+            document.getElementById('user-city').textContent = userCity;
+            document.getElementById('registration-date').textContent = registrationDate;
+        }
+
+        // Извикване на функцията за зареждане на профила
+        loadProfile();
+    </script>
+
 </body>
 </html>

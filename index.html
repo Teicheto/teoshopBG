@@ -269,6 +269,61 @@
                 this.reset(); // Нулира формата след изпращане
             });
         </script>
-
+        <script>
+            // Зареждане на масива с любими продукти от localStorage или създаване на нов масив
+            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        
+            // Обновяване на брояча на любимите продукти
+            function updateFavoritesCount() {
+                document.getElementById('favorites-count').innerText = favorites.length;
+            }
+        
+            // Функция за добавяне на продукт в "Любими"
+            function addToFavorites(productName) {
+                if (!favorites.includes(productName)) {
+                    favorites.push(productName);
+                    localStorage.setItem('favorites', JSON.stringify(favorites));
+                    alert(productName + " беше добавен в любими!");
+                } else {
+                    alert(productName + " вече е в любими.");
+                }
+                updateFavoritesCount();
+                console.log("Текущи любими: ", favorites); // Проверка за записани продукти
+            }
+        
+            // Зареждане на брояча при стартиране на страницата
+            document.addEventListener("DOMContentLoaded", function() {
+                updateFavoritesCount(); 
+                console.log("Заредени любими: ", favorites); // Проверка при зареждане
+            });
+        </script>
+        <script>
+            // Зареждане на масива с любими продукти от localStorage или създаване на нов масив
+            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        
+            // Обновяване на брояча на любимите продукти
+            function updateFavoritesCount() {
+                document.getElementById('favorites-count').innerText = favorites.length;
+            }
+        
+            // Функция за добавяне на продукт в "Любими"
+            function addToFavorites(productName) {
+                if (!favorites.includes(productName)) {
+                    favorites.push(productName);
+                    localStorage.setItem('favorites', JSON.stringify(favorites));
+                    alert(productName + " беше добавен в любими!");
+                } else {
+                    alert(productName + " вече е в любими.");
+                }
+                updateFavoritesCount();
+                console.log("Текущи любими: ", favorites); // Проверка за записани продукти
+            }
+        
+            // Зареждане на брояча при стартиране на страницата
+            document.addEventListener("DOMContentLoaded", function() {
+                updateFavoritesCount(); 
+                console.log("Заредени любими: ", favorites); // Проверка при зареждане
+            });
+        </script>
         </body>
         </html>

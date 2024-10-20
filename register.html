@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html lang="bg">
-<head>    
-    </head>    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация - Teo Shop</title>
-</head>
 <head>
+    <link rel="icon" href="favicon.jpg" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход - Teo Shop</title>
+    <title>Регистрация</title>
     <style>
-        /* Постави тук CSS кода от примера */
+        /* Стилове за формата */
     </style>
 </head>
 <body>
-    <h1>Регистрация</h1>
-    <input type="text" id="username" placeholder="Потребителско име" />
-    <input type="password" id="password" placeholder="Парола" />
-    <button onclick="register()">Регистрирай се</button>
-    <button onclick="goBack()">Назад</button>
+
+    <div class="form-container">
+        <h1>Регистрация</h1>
+        <form onsubmit="registerUser(event)">
+            <input type="text" name="name" placeholder="Име" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="city" placeholder="Град" required>
+            <button type="submit">Регистрирай се</button>
+        </form>
+        <p style="text-align: center;">Вече имате акаунт? <a href="login.html">Влезте тук</a></p>
+    </div>
 
     <script>
-        function register() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            alert("Регистриран: " + username);
-            // Можеш да добавиш логика за съхранение на потребителите
-        }
+        function registerUser(event) {
+            event.preventDefault(); // предотвратява стандартното поведение на формата
 
-        function goBack() {
-            window.history.back(); // Връща назад
+            const name = document.querySelector('input[name="name"]').value; // Име
+            const email = document.querySelector('input[name="email"]').value; // Email
+            const city = document.querySelector('input[name="city"]').value; // Град
+            const registrationDate = new Date().toLocaleDateString(); // Дата на регистрация
+
+            // Запазване на данни в localStorage
+            localStorage.setItem('userName', name);
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userCity', city);
+            localStorage.setItem('registrationDate', registrationDate);
+
+            // Пренасочване към профила
+            window.location.href = 'profile.html'; 
         }
     </script>
+
 </body>
 </html>

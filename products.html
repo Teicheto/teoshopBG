@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teo Shop</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Включи CSS файл -->
+    <link rel="stylesheet" href="style.css"> <!-- Включи CSS файл -->
     <style>
         /* Включваме стиловете директно тук за опростеност */
         .header {
@@ -276,11 +276,12 @@
     </div>
 
     <div class="product">
-        <img src="candle_abstract.jpg" alt="Име на продукта" />
-        <h3>НОВА Свещ</h3>
-        <p>Цена: 10 лв.</p>
-        <button class="favorite-button" onclick="addToFavorites('Име на продукта')">Добави в любими</button>
-    </div>
+        <h3></h3>
+        <img src="candle_abstract.jpg" alt="Продукт 1">
+        <p>НОВА СВЕЩ</p>
+        <p>Цена: 10 лв</p>
+        <button onclick="addToFavorites('Продукт 1')">Добави в любими</button>
+    </div>    
     
 
     <div class="product">
@@ -314,5 +315,32 @@
     </div>
 
     <a href="index.html">Назад</a> <!-- Линк обратно към основната страница -->
+    <script>
+        // Празен масив, където ще съхраняваме любимите продукти
+        let favorites = [];
+    
+        // Функция за добавяне на продукт в любими
+        function addToFavorites(productName) {
+            // Проверка дали продуктът вече е в любими
+            if (!favorites.includes(productName)) {
+                favorites.push(productName);
+                alert(productName + " беше добавен в любими!");
+                updateFavoritesCount();
+            } else {
+                alert(productName + " вече е в любими.");
+            }
+        }
+    
+        // Функция за обновяване на брояча на любимите продукти
+        function updateFavoritesCount() {
+            document.getElementById('favorites-count').innerText = favorites.length;
+        }
+    
+        // Може да добавиш функция за показване на любимите продукти
+        function showFavorites() {
+            const favoritesList = favorites.join(', ');
+            alert("Любими продукти: " + favoritesList);
+        }
+    </script>  
 </body>
 </html>
