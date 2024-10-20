@@ -3,11 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Любими</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Любими продукти</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .favorites-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .favorites-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Моите любими продукти</h1>
-    <!-- Добави тук код за показване на любимите продукти -->
+
+    <div class="favorites-container">
+        <h1>Любими продукти</h1>
+        <div id="favorites-list"></div>
+    </div>
+
+    <script>
+        function loadFavorites() {
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            const favoritesList = document.getElementById('favorites-list');
+
+            if (favorites.length === 0) {
+                favoritesList.innerHTML = '<p>Нямате любими продукти.</p>';
+                return;
+            }
+
+            favorites.forEach(productId => {
+                // Тук можеш да добавиш логика за извличане на данните на продукта от твоя масив с продукти
+                const productElement = document.createElement('div');
+                productElement.innerHTML = `<p>Продукт ID: ${productId}</p>`;
+                favoritesList.appendChild(productElement);
+            });
+        }
+
+        // Извикване на функцията при зареждане на страницата
+        loadFavorites();
+    </script>
+
 </body>
 </html>
