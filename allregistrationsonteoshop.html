@@ -1,25 +1,61 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
+    <link rel="icon" href="favicon.jpg" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Показване на всички регистрации</title>
+    <title>Всички регистрации</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .registration-list {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .registration-list h1 {
+            text-align: center;
+        }
+        .registration-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .registration-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .registration-list li:last-child {
+            border-bottom: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>Всички регистрации</h1>
-    <ul id="users-list"></ul>
+
+    <div class="registration-list">
+        <h1>Регистрации</h1>
+        <ul id="registrations"></ul>
+    </div>
 
     <script>
-        // Извличане на всички потребители от localStorage
-        const users = JSON.parse(localStorage.getItem('users')) || [];
+        // Функция за извличане на всички регистрации
+        function loadRegistrations() {
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const registrationsList = document.getElementById('registrations');
 
-        // Показване на потребителите на страницата
-        const usersList = document.getElementById('users-list');
-        users.forEach(user => {
-            const listItem = document.createElement('li');
-            listItem.textContent = `Име: ${user.name}, Email: ${user.email}, Град: ${user.city}, Дата на регистрация: ${user.registrationDate}`;
-            usersList.appendChild(listItem);
-        });
+            users.forEach(user => {
+                const li = document.createElement('li');
+                li.textContent = `${user.name} - ${user.email} - ${user.city} - ${user.registrationDate}`;
+                registrationsList.appendChild(li);
+            });
+        }
+
+        // Извикване на функцията за зареждане на регистрации
+        loadRegistrations();
     </script>
+
 </body>
 </html>
