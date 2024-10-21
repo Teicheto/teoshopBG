@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Показване на всички регистрации</title>
+</head>
+<body>
+    <h1>Всички регистрации</h1>
+    <ul id="users-list"></ul>
+
+    <script>
+        // Извличане на всички потребители от localStorage
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Показване на потребителите на страницата
+        const usersList = document.getElementById('users-list');
+        users.forEach(user => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Име: ${user.name}, Email: ${user.email}, Град: ${user.city}, Дата на регистрация: ${user.registrationDate}`;
+            usersList.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>
