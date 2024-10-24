@@ -4,64 +4,147 @@
     <link rel="icon" href="favicon.jpg" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход - Teo Shop</title>
+    <title>Login - Teo Shop</title>
     <style>
-        /* Примерни стилове за вход */
+        /* Основни стилове */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #0f0f0f;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
+            overflow: hidden;
         }
-        .form-container {
-            background-color: white;
+
+        .login-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
-        }
-        .form-container h1 {
             text-align: center;
+        }
+
+        .login-box {
+            background-color: #1c1c1c;
+            border-radius: 10px;
+            padding: 40px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .input-box {
             margin-bottom: 20px;
         }
-        .form-container input {
+
+        .input-box input {
             width: 100%;
             padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .form-container button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 25px;
+            background-color: #333;
+            color: white;
+            font-size: 16px;
+        }
+
+        .button-box button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            font-size: 18px;
             cursor: pointer;
+            transition: background 0.3s ease;
         }
-        .form-container button:hover {
-            background-color: #0056b3;
+
+        .button-box button:hover {
+            background: linear-gradient(to right, #ff4b2b, #ff416c);
         }
-        .form-container .back-button {
+
+        .back-button {
             background-color: #6c757d;
+            margin-top: 10px;
         }
-        .form-container .back-button:hover {
+
+        .back-button:hover {
             background-color: #5a6268;
+        }
+
+        .links {
+            margin-top: 20px;
+        }
+
+        .links a {
+            color: #999;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .links a:hover {
+            color: white;
+        }
+
+        /* Кръгове около формата */
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            animation: rotate 6s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="form-container">
-        <h1>Вход</h1>
-        <input type="text" id="loginUsername" placeholder="Потребителско име" />
-        <input type="password" id="loginPassword" placeholder="Парола" />
-        <button onclick="login()">Вход</button>
-        <button class="back-button" onclick="goBack()">Назад</button>
+    <div class="login-container">
+        <div class="login-box">
+            <h1>Вход</h1>
+            <form>
+                <div class="input-box">
+                    <input type="text" id="loginUsername" placeholder="Потребителско име" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="loginPassword" placeholder="Парола" required>
+                </div>
+                <div class="button-box">
+                    <button type="button" onclick="login()">Вход</button>
+                </div>
+                <button class="back-button" type="button" onclick="goBack()">Назад</button>
+                <div class="links">
+                    <a href="#">Забравена парола</a>
+                    <a href="register.html">Регистрация</a>
+                </div>
+            </form>
+        </div>
     </div>
 
     <script>
@@ -69,11 +152,10 @@
             const username = document.getElementById('loginUsername').value;
             const password = document.getElementById('loginPassword').value;
             alert("Влезе: " + username);
-            // Можеш да добавиш логика за проверка на входа
         }
 
         function goBack() {
-            window.history.back(); // Връща назад
+            window.history.back();
         }
     </script>
 </body>

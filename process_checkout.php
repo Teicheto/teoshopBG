@@ -1,22 +1,19 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars($_POST['name']);
-    $phone = htmlspecialchars($_POST['phone']);
-    $city = htmlspecialchars($_POST['city']);
-    $address = htmlspecialchars($_POST['address']);
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $city = $_POST['city'];
+    $address = $_POST['address'];
 
-    // Тук можеш да запазиш данните в база данни или да ги изпратиш по имейл
-    $to = "teodorfilipov369@gmail.com"; // Заменете с вашия имейл
+    $to = "teodorfilipov369@gmail.com";
     $subject = "Нова поръчка от Teo Shop";
     $message = "Име: $name\nТелефон: $phone\nГрад: $city\nАдрес: $address";
-    $headers = "From: no-reply@teoshop.com";
+    $headers = "From: noreply@teoshop.com";
 
     if (mail($to, $subject, $message, $headers)) {
-        echo "Поръчката е изпратена успешно!";
+        echo "Данните са изпратени успешно!";
     } else {
-        echo "Имаше проблем с изпращането на поръчката.";
+        echo "Възникна грешка при изпращането на данните.";
     }
-} else {
-    echo "Неправилен метод за достъп.";
 }
 ?>
