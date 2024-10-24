@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Количка - Teo Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .cart {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .cart th, .cart td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .cart th {
+            background-color: #f2f2f2;
+        }
+
+        .cart td {
+            vertical-align: middle;
+        }
+
+        .product-img {
+            width: 100px;
+            height: auto;
+        }
+
+        .total {
+            font-size: 20px;
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .checkout-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+        }
+
+        .checkout-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Количка</h1>
+
+    <table class="cart">
+        <thead>
+            <tr>
+                <th>Продукт</th>
+                <th>Име</th>
+                <th>Количество</th>
+                <th>Цена</th>
+                <th>Общо</th>
+            </tr>
+        </thead>
+        <tbody id="cart-items">
+            <!-- Тук ще се добавят продуктите от JavaScript -->
+        </tbody>
+    </table>
+
+    <div class="total">
+        <p>Общо: <span id="total-price">0</span> лв</p>
+        <a href="checkout.html" class="checkout-btn">Плащане</a>
+    </div>
+
+    <script>
+        // Примерни продукти за количката
+        let cart = [
+            { name: "Свещ лайм", quantity: 2, price: 5, img: "candle_laim.jpg" },
+            { name: "3D принтирана Шипка", quantity: 1, price: 4.50, img: "shipka.jpg" },
+        ];
+
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            let total = 0;
+
+            cart.forEach((item) => {
+                const itemTotal = item.quantity * item.price;
+                total += itemTotal;
+
+                cartItemsContainer.innerHTML += `
+                    <tr>
+                        <td><img src="${item.img}" alt="${item.name}" class="product-img"></td>
+                        <td>${item.name}</td>
+                        <td>${item.quantity}</td>
+                        <td>${item.price.toFixed(2)} лв</td>
+                        <td>${itemTotal.toFixed(2)} лв</td>
+                    </tr>
+                `;
+            });
+
+            document.getElementById('total-price').innerText = total.toFixed(2);
+        }
+
+        // Показване на продуктите в количката при зареждане на страницата
+        displayCartItems();
+    </script>
+
+</body>
+</html>

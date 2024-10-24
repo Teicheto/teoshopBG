@@ -96,7 +96,8 @@
             <div class="dropdown-menu" id="dropdown-menu">
                 <a href="favorites.html">Любими</a>
                 <a href="profile.html">Профила ви</a>
-            </div>
+                <a href="card.html">Количка</a> <!-- Ново: Добавена количка -->
+            </div>            
         </div>
     </div>
 
@@ -279,8 +280,11 @@
         <p>Червен череп свещ</p>
         <p>Цена: 5 лв</p>
         <button onclick="addToFavorites('Череп свещ')">Добави в любими</button>
-    </div>   
-
+        
+        <!-- Текст за количката -->
+        <button onclick="addToCart('Червен череп свещ', 5)">Добави в количката</button>
+    </div>
+    
 
     <div class="product">
         <h3></h3>
@@ -305,6 +309,14 @@
         <p>Цена: 5 лв</p>
         <button onclick="addToFavorites('България свещ')">Добави в любими</button>
     </div> 
+
+    <div class="product">
+        <h3></h3>
+        <img src="candle_laim.jpg" alt="Продукт 1">
+        <p>Свещ лайм😁</p>
+        <p>Цена: 5 лв</p>
+        <button onclick="addToFavorites('Свещ лайм')">Добави в любими</button>
+    </div>
 
     <h1 style="font-size: 36px; color: #4CAF50; font-family: Arial, sans-serif;">3D принтирани</h1>
 
@@ -333,6 +345,14 @@
         <p>Цена: 5 лв</p>
         <button onclick="addToFavorites('Робот')">Добави в любими</button>
     </div>
+
+    <div class="product">
+        <h3></h3>
+        <img src="3dprint_obici.jpg" alt="Продукт 1">
+        <p>3D принтирани обици😀</p>
+        <p>Цена: 3 лв</p>
+        <button onclick="addToFavorites('3Д принтирани обици')">Добави в любими</button>
+    </div> 
     
 
     <a href="index.html">Назад</a> <!-- Линк обратно към основната страница -->

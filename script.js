@@ -113,3 +113,18 @@ function removeFromLocalStorage(key) {
 function clearLocalStorage() {
     localStorage.clear();
 }
+// Празен масив за количката
+let cart = [];
+
+// Функция за добавяне на продукт в количката
+function addToCart(productName, price) {
+    // Добавяне на продукта в количката
+    cart.push({ name: productName, price: price });
+    alert(productName + " беше добавен в количката!");
+    updateCartCount(); // Обнови брояча на количката
+}
+
+// Функция за обновяване на брояча на количката
+function updateCartCount() {
+    document.getElementById('cart-count').innerText = cart.length;
+}
